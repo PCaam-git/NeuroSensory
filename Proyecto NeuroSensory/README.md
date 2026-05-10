@@ -63,7 +63,45 @@ El sistema se divide en dos aplicaciones principales para separar responsabilida
     - Producto(Admin): Muestra SKU, nombre, precio, IVA y stock. Incluye filtros por tipo de IVA y búsqueda por SKU y nombre.
     - Pedido(Admin): Muestra cliente, fecha, estado y total. Permite filtrar por estado y fecha. 
 
-    6. INSTALACIÓN Y USO
+    6. MÓDULO CRM Y PIPELINE DE OPORTUNIDADES
+
+    El proyecto incorpora una nueva aplicación llamada `crm`, encargada de gestionar oportunidades comerciales antes de que exista un pedido confirmado.
+
+    A diferencia del módulo de ventas, que registra pedidos ya creados, el módulo CRM permite hacer seguimiento de posibles ventas durante su proceso de negociación.
+
+        ### Modelo Oportunidad
+
+    El modelo `Oportunidad` contiene los siguientes campos principales:
+
+    - `titulo`: nombre o descripción breve de la oportunidad comercial.
+    - `cliente`: cliente asociado a la oportunidad.
+    - `valor_estimado`: importe económico previsto si la oportunidad se convierte en venta.
+    - `etapa`: fase actual dentro del pipeline comercial.
+    - `fecha_creacion`: fecha en la que se registra la oportunidad.
+    - `fecha_cierre`: fecha en la que se cierra la oportunidad, si ya ha finalizado.
+
+    ### Etapas del pipeline
+
+    Las etapas definidas para una oportunidad son:
+
+    1. Prospección
+    2. Propuesta
+    3. Negociación
+    4. Cerrada Ganada
+    5. Cerrada Perdida
+
+    Este flujo representa el recorrido de una oportunidad desde que se detecta una posible venta hasta que finaliza como ganada o perdida.
+
+    ### KPI: Tasa de Conversión
+
+    La Tasa de Conversión mide qué porcentaje de oportunidades comerciales terminan en éxito.
+
+    La fórmula es:
+
+    ```text
+    Tasa de Conversión = (Oportunidades Ganadas / Total de Oportunidades) × 100
+
+    7. INSTALACIÓN Y USO
     Requisitos previos
 
     Python 3.8+
@@ -114,7 +152,7 @@ El sistema se divide en dos aplicaciones principales para separar responsabilida
 
 
 
-7. TECNOLOGÍAS UTILIZADAS
+8. TECNOLOGÍAS UTILIZADAS
 
     Django 5.2.8: Framework web de Python
     Python 3.13.9: Lenguaje de programación
