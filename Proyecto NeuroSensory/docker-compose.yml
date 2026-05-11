@@ -23,6 +23,8 @@ services:
     restart: unless-stopped
     env_file:
     - .env
+    environment:
+      USE_POSTGRES: "True"
     ports:
       - "8000:8000"
     depends_on:
