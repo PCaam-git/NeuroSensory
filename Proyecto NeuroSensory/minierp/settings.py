@@ -73,9 +73,10 @@ WSGI_APPLICATION = 'minierp.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
-if os.environ.get('DB_NAME'):
+USE_POSTGRES = os.environ.get('USE_POSTGRES', 'False') == 'True'
+    
+if USE_POSTGRES:
     # Configuración para PostgreSQL/Docker
-
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql',
